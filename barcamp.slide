@@ -84,35 +84,42 @@ To run:
 .image images/fiveyears.jpg _ 900
 
 * Concurrency
-Share memory by communicating, rather than sharing memory to communicate
+Do not communicate by sharing memory; instead, share memory by communicating.
+.link https://golang.org/doc/effective_go.html#sharing
+
 
 Finish this slide
 
 * Goroutines
 Lightweight Threads, shared address space
 
-* Mutex, Semaphores, and sharing memory
+* Mutexes, Semaphores, and sharing memory
 The general method of communicating is through shared memory. This is done
-by regulating access to critical sections of code using mutex, semaphores, or
+by regulating access to critical sections of code using mutexes, semaphores, or
 other locking mechanisms.
 
+TODO: C pthread example
 
 * The Go Solution: Channels
-Share memory by communicating
+
+While Go has mutexes and semaphores, idiomatic Go uses channels for thread communication
+where possible.
+
+Share memory by communicating:
 
     // Simple integer channel
-    channel := make(chan int)
+    jackie := make(chan int)
 
     go func() {
         for i := 0; i < 10; i++ {
-            channel <- i
+            jackie <- i
             time.Sleep(time.Second)
         }
     }()
 
     go func() {
         for {
-            value := <- channel
+            value := <- jackie
             fmt.Println(value)
         }
     }()
