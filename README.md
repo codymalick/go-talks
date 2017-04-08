@@ -10,4 +10,4 @@ With golang installed, run
 
 To run:
 
-`presentation`
+`present`
