@@ -6,6 +6,7 @@ Beaver Barcamp 17
 
 Tags: Golang, Hello World, Introduction
 
+
 Cody Malick
 
 cody.malick@gmail.com
@@ -115,3 +116,9 @@ Share memory by communicating
             fmt.Println(value)
         }
     }()
+
+* Slide Download
+
+.link http://cmalloc.com/public/static/slides.pdf
+
+.image images/proto.jpg
