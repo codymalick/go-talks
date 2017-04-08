@@ -1,0 +1,91 @@
+Get Going with Golang
+Beaver Barcamp 17
+
+8 April 2017
+
+
+Tags: Golang
+
+Cody Malick
+
+cody.malick@gmail.com
+
+* Getting Started
+- Why Go?
+- Quick technical details
+- Download and Install Go
+- Hello World
+- Concurrency
+
+* Why Go?
+Go, released to the public in 2009, was designed to be simple, fast,
+and powerful. Go is completely open source and has support on all major
+platforms (Linux/Mac/Windows/FreeBSD).
+
+Go had a few specific design goals:
+- Ease of programming
+- Efficient compilation
+- Performant execution
+- Simple concurrency
+
+.image images/gopherbw.png _ 200
+
+* Quick technical details
+
+Go is:
+- A compiled language
+- Statically typed
+- Garbage Collected
+
+Go is not:
+- An Object Oriented Programming Language, there is no such thing as a class
+
+* Download and Install Go
+Install Docs:
+
+.link https://golang.org/doc/install
+
+Downloads Page:
+
+.link https://golang.org/dl/
+
+more test
+
+    Preformatted text
+    is indented (however I like)
+        more indentation
+
+* Hello World!
+
+.play helloworld.go
+
+
+To build:
+
+    $ go build
+
+To run:
+
+    $ ./main
+    Hello World!
+
+* We did it!
+
+.image images/fiveyears.jpg _ 900
+
+* Concurrency
+Share information by communicating, rather tha
+
+* Goroutines
+Lightweight Threads, shared address space
+
+* Mutex, Semaphores, and sharing memory
+The general method of communicating is through shared memory. This is done
+by regulating access to critical sections of code using mutex and semaphores.
+
+
+* The Go Solution: Channels
+Share memory by communicating
+
+    // Simple integer channel
+    channel := make(chan int)
