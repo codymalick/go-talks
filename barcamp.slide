@@ -4,7 +4,7 @@ Beaver Barcamp 17
 8 April 2017
 
 
-Tags: Golang
+Tags: Golang, Hello World, Introduction
 
 Cody Malick
 
@@ -21,6 +21,9 @@ cody.malick@gmail.com
 Go, released to the public in 2009, was designed to be simple, fast,
 and powerful. Go is completely open source and has support on all major
 platforms (Linux/Mac/Windows/FreeBSD).
+
+Check it out:
+.link https://github.com/golang
 
 Go had a few specific design goals:
 - Ease of programming
@@ -49,15 +52,21 @@ Downloads Page:
 
 .link https://golang.org/dl/
 
-more test
+Debian (Go 1.6)
 
-    Preformatted text
-    is indented (however I like)
-        more indentation
+    $sudo apt-get install golang
+
+Fedora (Go 1.8)
+
+    $ sudo dnf install golang
+
+CentOS (Go 1.6)
+
+    $ yum install golang
 
 * Hello World!
 
-.play helloworld.go
+.play helloworld/helloworld.go
 
 
 To build:
@@ -74,14 +83,17 @@ To run:
 .image images/fiveyears.jpg _ 900
 
 * Concurrency
-Share information by communicating, rather tha
+Share memory by communicating, rather than sharing memory to communicate
+
+Finish this slide
 
 * Goroutines
 Lightweight Threads, shared address space
 
 * Mutex, Semaphores, and sharing memory
 The general method of communicating is through shared memory. This is done
-by regulating access to critical sections of code using mutex and semaphores.
+by regulating access to critical sections of code using mutex, semaphores, or
+other locking mechanisms.
 
 
 * The Go Solution: Channels
@@ -89,3 +101,17 @@ Share memory by communicating
 
     // Simple integer channel
     channel := make(chan int)
+
+    go func() {
+        for i := 0; i < 10; i++ {
+            channel <- i
+            time.Sleep(time.Second)
+        }
+    }()
+
+    go func() {
+        for {
+            value := <- channel
+            fmt.Println(value)
+        }
+    }()
